@@ -1,49 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dachis nudes</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Picture Gallery</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dachis Gallery</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background-color: #000000;
+      background-color: #000;
       color: white;
+      margin: 0;
+      padding: 0;
     }
+
+    .main-image {
+      margin-top: 20px;
+    }
+
+    .main-image img {
+      width: 450px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
     .gallery {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 15px;
       padding: 20px;
     }
+
     .gallery img {
-      width: 300px;
+      width: 150px;
       height: auto;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
   <h1>My Dachi's Gallery</h1>
+
+  <div class="main-image">
+    <img src="Dachi.png" alt="Main Dachi">
+  </div>
+
   <div class="gallery">
-    <img src="Dachi.png" alt="Image 1">
     <img src="Dachi1.png" alt="Dachi 1">
     <img src="Dachi2.png" alt="Dachi 2">
     <img src="Dachi3.png" alt="Dachi 3">
     <img src="Dachi4.png" alt="Dachi 4">
   </div>
-</body>
-</html>
-
 </body>
 </html>
