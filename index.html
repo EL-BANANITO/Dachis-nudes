@@ -7,57 +7,176 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
       background-color: #000;
       color: white;
       margin: 0;
-      padding: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .gallery-row {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-block {
+      text-align: center;
+      max-width: 500px;
     }
 
     .main-image {
-      margin-top: 20px;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
     }
 
     .main-image img {
-      width: 450px;
-      height: auto;
+      height: 100%;
+      width: auto;
+      object-fit: cover;
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      margin-bottom: 15px;
+      cursor: pointer;
     }
 
     .gallery {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 15px;
-      padding: 20px;
+      gap: 10px;
     }
 
     .gallery img {
-      width: 150px;
-      height: auto;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s;
+      cursor: pointer;
     }
 
     .gallery img:hover {
       transform: scale(1.05);
     }
+
+    /* Lightbox Modal */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .lightbox img {
+      width: 650px;
+      height: 2425px;
+      object-fit: contain;
+      border-radius: 15px;
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 30px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .lightbox-close:hover {
+      color: #aaa;
+    }
   </style>
 </head>
 <body>
-  <h1>My Dachi's Gallery</h1>
+  <h1>My Friend's Gallery</h1>
 
-  <div class="main-image">
-    <img src="Dachi.png" alt="Main Dachi">
+  <div class="gallery-row">
+    <!-- Gallery Block Template -->
+    <div class="gallery-block">
+      <div class="main-image">
+        <img src="Dachi.png" alt="Dachi" onclick="openLightbox('Dachi.png')">
+      </div>
+      <div class="gallery">
+        <img src="Dachi1.png" alt="Dachi1" onclick="openLightbox('Dachi1.png')">
+        <img src="Dachi2.png" alt="Dachi2" onclick="openLightbox('Dachi2.png')">
+        <img src="Dachi3.png" alt="Dachi3" onclick="openLightbox('Dachi3.png')">
+        <img src="Dachi4.png" alt="Dachi4" onclick="openLightbox('Dachi4.png')">
+      </div>
+    </div>
+
+    <div class="gallery-block">
+      <div class="main-image">
+        <img src="Lexo.png" alt="Lexo" onclick="openLightbox('Lexo.png')">
+      </div>
+      <div class="gallery">
+        <img src="Lexo1.png" alt="Lexo1" onclick="openLightbox('Lexo1.png')">
+        <img src="Lexo2.png" alt="Lexo2" onclick="openLightbox('Lexo2.png')">
+        <img src="Lexo3.png" alt="Lexo3" onclick="openLightbox('Lexo3.png')">
+        <img src="Lexo4.png" alt="Lexo4" onclick="openLightbox('Lexo4.png')">
+      </div>
+    </div>
+
+    <div class="gallery-block">
+      <div class="main-image">
+        <img src="Zura.png" alt="Zura" onclick="openLightbox('Zura.png')">
+      </div>
+      <div class="gallery">
+        <img src="Zura1.png" alt="Zura1" onclick="openLightbox('Zura1.png')">
+        <img src="Zura2.png" alt="Zura2" onclick="openLightbox('Zura2.png')">
+        <img src="Zura3.png" alt="Zura3" onclick="openLightbox('Zura3.png')">
+        <img src="Zura4.png" alt="Zura4" onclick="openLightbox('Zura4.png')">
+      </div>
+    </div>
+
+    <div class="gallery-block">
+      <div class="main-image">
+        <img src="Petre.png" alt="Petre" onclick="openLightbox('Petre.png')">
+      </div>
+      <div class="gallery">
+        <img src="Petre1.png" alt="Petre1" onclick="openLightbox('Petre1.png')">
+        <img src="Petre2.png" alt="Petre2" onclick="openLightbox('Petre2.png')">
+        <img src="Petre3.png" alt="Petre3" onclick="openLightbox('Petre3.png')">
+        <img src="Petre4.png" alt="Petre4" onclick="openLightbox('Petre4.png')">
+      </div>
+    </div>
   </div>
 
-  <div class="gallery">
-    <img src="Dachi1.png" alt="Dachi 1">
-    <img src="Dachi2.png" alt="Dachi 2">
-    <img src="Dachi3.png" alt="Dachi 3">
-    <img src="Dachi4.png" alt="Dachi 4">
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <a class="lightbox-close" onclick="closeLightbox()">×</a>
+    <img id="lightbox-img" src="" alt="Large view">
   </div>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById("lightbox-img").src = src;
+      document.getElementById("lightbox").style.display = "flex";
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
 </body>
 </html>
